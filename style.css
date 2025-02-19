@@ -1,0 +1,105 @@
+*
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(https://slidechef.net/wp-content/uploads/2024/08/memory-game-template.jpg)no-repeat;
+    background-size: cover;
+}
+h2
+{
+    color: rgb(11, 11, 11);
+    font-size:3em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: whitesmoke;
+}
+.container
+{
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction:column;
+gap: 50px;
+background:rgba(204, 12, 12, 0.053);
+border: 2px solid rgb(204, 204, 204);
+}
+.reset
+{
+    padding: 15px 20px;
+    color: #267c65;
+    background: #fff;
+    border: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+}
+.reset:focus
+{
+    color: #fff;
+    background: #267c65;
+}
+
+.game
+{
+width: 440px;
+height: 440px;
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+transform-style: preserve-3d;
+perspective: 500px;
+}
+.item
+{
+    position: relative;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    background: #fff;
+    transform: rotateY(180deg);
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+.te.boxOpen{
+    transform: rotateY(180deg);
+}
+.item.boxMatch{
+    background: #42ef7b;
+    transform: scale(1.1);
+}
+.emoji{
+    transition: opacity 0.3s;
+}
+.item.boxOpen:after
+{
+    transform: rotateY(0deg);
+}
+.item::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    /* opacity: 0.85; */
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.boxOpen:after , .boxMatch::after
+{
+   transform: rotateY(180deg);
+}
